@@ -29,9 +29,24 @@ def affiliate_links(query, aff):
     return uniq[:5]
 
 def fetch_trends():
-    pytrends = TrendReq(hl='en-US', tz=360)
-    df = pytrends.trending_searches(pn='united_states')
-    return [str(x) for x in df[0].tolist()][:5]
+    # Robust fetch with fallback topics so the bot never fails
+    try:
+        from pytrends.request import TrendReq
+        pytrends = TrendReq(hl='en-US', tz=360)
+        df = pytrends.trending_searches(pn='united_states')
+        topics = [str(x) for x in df[0].tolist()]
+        if topics:
+            return topics[:5]
+    except Exception as e:
+        print("Trends error:", e)
+
+    # Fallback evergreen topics
+    return [
+        "best wireless earbuds",
+        "home office desk",
+        "air fryer recipes",
+        "portable power station",
+        "budget gaming laptop"
 
 def slugify(title):
     s = title.lower()
