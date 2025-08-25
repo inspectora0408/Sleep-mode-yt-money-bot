@@ -1,0 +1,9 @@
+{
+  "amazon_tag": "YOUR_AMAZON_TAG-20",
+  "amazon_country": "com",
+  "fallback_links": [
+    "https://www.amazon.com/s?k={query}&tag=YOUR_AMAZON_TAG-20",
+    "https://clickbank.com/",
+    "https://www.ebay.com/sch/i.html?_nkw={query}"
+  ]
+}

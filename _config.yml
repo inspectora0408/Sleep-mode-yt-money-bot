@@ -1,0 +1,8 @@
+title: Sleep-Mode Money Bot
+description: Auto-generated trend posts with affiliate links.
+baseurl: ""
+url: ""
+theme: minima
+plugins:
+  - jekyll-feed
+markdown: kramdown
